@@ -14,30 +14,28 @@ import javax.persistence.Id;
 
 /**
  * Clase encargada de crear la entidad Rol
+ *
  * @author Evelyn Guzman y Camilo Fique
  */
 @Entity(name = "Rol")
 public class RolEntity implements Serializable {
-    
+
     /**
      * Llave primaria de la entidad Rol
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idRol; 
-    
-     /**
-     *Columna que hace referencia al nombre del rol
+    private int idRol;
+
+    /**
+     * Columna que hace referencia al nombre del rol
      */
     @Column(name = "nombre_rol", nullable = false)
     private String nombreRol;
 
-
-    
     /**
      * Métodos GET Y SET
-     */ 
-   
+     */
     public int getIdRol() {
         return idRol;
     }
@@ -52,8 +50,6 @@ public class RolEntity implements Serializable {
 
     public void setNombreRol(String nombreRol) {
         this.nombreRol = nombreRol;
-    }   
-    
-    
-    
+    }
+
 }

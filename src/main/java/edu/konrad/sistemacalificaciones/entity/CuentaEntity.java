@@ -16,10 +16,11 @@ import javax.persistence.ManyToOne;
 
 /**
  * Clase encargada de crear la entidad Cuenta
+ *
  * @author Evelyn Guzman y Camilo Fique
  */
 @Entity(name = "Cuenta")
-public class CuentaEntity implements Serializable{
+public class CuentaEntity implements Serializable {
 
     /**
      * Llave primaria de la entidad Cuenta
@@ -28,31 +29,29 @@ public class CuentaEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCuenta;
 
-     /**
+    /**
      * Columna que hace referencia al código de inicio de cada cuenta
      */
-    @Column(name = "codigo", nullable = false, unique=true)
+    @Column(name = "codigo", nullable = false, unique = true)
     private Long codigo;
-    
-     /**
+
+    /**
      * Columna que hace referencia al password de la cuenta
      */
     @Column(name = "password", nullable = false)
     private String password;
 
-     /**
-     * Columna que hace referencia al rol de la cuenta y se relaciona con la tabla Rol
+    /**
+     * Columna que hace referencia al rol de la cuenta y se relaciona con la
+     * tabla Rol
      */
     @ManyToOne
-    @JoinColumn(name= "idRol")
-    private RolEntity Rol;  
+    @JoinColumn(name = "idRol")
+    private RolEntity Rol;
 
-
-    
     /**
      * Métodos GET y SET
      */
-    
     public Long getIdCuenta() {
         return idCuenta;
     }
@@ -83,7 +82,6 @@ public class CuentaEntity implements Serializable{
 
     public void setRol(RolEntity Rol) {
         this.Rol = Rol;
-    }    
-    
-    
+    }
+
 }
