@@ -5,6 +5,7 @@
  */
 package edu.konrad.sistemacalificaciones.entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 
 /**
@@ -12,6 +13,6 @@ import javax.persistence.Entity;
  * @author camil
  */
 @Entity(name = "Cuenta")
-public class CuentaEntity {
+public class CuentaEntity implements Serializable{
     
 }
