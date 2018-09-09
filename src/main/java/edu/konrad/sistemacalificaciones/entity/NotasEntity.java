@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * Clase encargada de crear la entidad notas
+ * Clase encargada de crear la entidad de la tabla notas
  * @author Evelyn Guzman y Camilo Fique
  */
 
