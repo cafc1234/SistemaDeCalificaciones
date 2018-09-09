@@ -21,7 +21,7 @@ import javax.persistence.Id;
 public class CorteEntity implements Serializable{
 
     /**
-     * Llave primaria de la entidad TipoDocumento
+     * Llave primaria de la entidad Corte
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
