@@ -20,6 +20,7 @@ import javax.persistence.OneToOne;
  *
  * @author Evelyn Guzman y Camilo Fique
  */
+
 @Entity(name = "Persona")
 public class PersonaEntity implements Serializable {
 

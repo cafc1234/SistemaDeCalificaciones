@@ -13,47 +13,46 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Clase encargada de crear la entidad de la tabla categórica Tipo nivel
+ * Clase encargada de crear la entidad Corte
  *
  * @author Evelyn Guzman y Camilo Fique
  */
-@Entity(name="TipoNivel")
-public class TipoNivelEntity implements Serializable {
-    
+@Entity(name="Corte")
+public class CorteEntity implements Serializable{
+
     /**
      * Llave primaria de la entidad TipoDocumento
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idTipo;    
+    private int idCorte;
     
      /**
-     * Columna que hace referencia al nombre del tipo de curso
+     * Columna que hace referencia al nombre del corte
      */
-    @Column(name = "nombre_nivel", nullable = false)
-    private String nombreNivel;
+    @Column(name = "nombre_corte", nullable = false)
+    private String nombreCorte;
 
+    
     /**
-     * Métodos GET y SET
+     * Métodos GET y SET 
      */
     
-    public int getIdTipo() {
-        return idTipo;
+    public int getIdCorte() {
+        return idCorte;
     }
 
-    public void setIdTipo(int idTipo) {
-        this.idTipo = idTipo;
+    public void setIdCorte(int idCorte) {
+        this.idCorte = idCorte;
     }
 
-    public String getNombreNivel() {
-        return nombreNivel;
+    public String getNombreCorte() {
+        return nombreCorte;
     }
 
-    public void setNombreNivel(String nombreNivel) {
-        this.nombreNivel = nombreNivel;
+    public void setNombreCorte(String nombreCorte) {
+        this.nombreCorte = nombreCorte;
     }
     
-    
- 
     
 }
