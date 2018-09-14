@@ -15,15 +15,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 /**
- * Clase encargada de crear la entidad de la tabla Profesor
+ * Clase encargada de crear la entidad de la tabla ProfesorEntity
  *
  * @author Evelyn Guzman y Camilo Fique
  */
 @Entity(name="Profesor")
-public class Profesor implements Serializable{
+public class ProfesorEntity implements Serializable{
     
     /**
-     * Llave primaria de la entidad Profesor
+     * Llave primaria de la entidad ProfesorEntity
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -51,7 +51,7 @@ public class HorariosEntity implements Serializable{
    
     @ManyToOne
     @JoinColumn(name = "codigo")
-    private Profesor profesor;
+    private ProfesorEntity profesor;
     
      /**
      * Columna que hace referencia al día de la semana
@@ -95,11 +95,11 @@ public class HorariosEntity implements Serializable{
         this.grupo = grupo;
     }
 
-    public Profesor getProfesor() {
+    public ProfesorEntity getProfesor() {
         return profesor;
     }
 
-    public void setProfesor(Profesor profesor) {
+    public void setProfesor(ProfesorEntity profesor) {
         this.profesor = profesor;
     }
 

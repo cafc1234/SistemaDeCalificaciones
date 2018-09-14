@@ -58,7 +58,7 @@ public class CursoEntity  implements Serializable{
     
     @ManyToOne
     @JoinColumn(name = "codigo")
-    private Profesor profesor;
+    private ProfesorEntity profesor;
     
          /**
      * Columna que hace referencia al codigo del nivel y se relaciona con la
@@ -106,11 +106,11 @@ public class CursoEntity  implements Serializable{
         this.grupo = grupo;
     }
 
-    public Profesor getProfesor() {
+    public ProfesorEntity getProfesor() {
         return profesor;
     }
 
-    public void setProfesor(Profesor profesor) {
+    public void setProfesor(ProfesorEntity profesor) {
         this.profesor = profesor;
     }
 
