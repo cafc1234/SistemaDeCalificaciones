@@ -30,8 +30,8 @@ public class NotasPersistence {
      */
 
     public List<NotasEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Notas p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Notas p");
+        return query.getResultList();
     }
     
     /**

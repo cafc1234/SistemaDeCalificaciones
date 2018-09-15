@@ -31,8 +31,8 @@ public class ProgramaPersistence {
      */
 
     public List<ProgramaEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Programa p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Programa p");
+        return query.getResultList();
     }
     
     /**

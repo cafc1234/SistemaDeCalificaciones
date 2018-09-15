@@ -32,8 +32,8 @@ public class ProfesorPersistence {
      */
 
     public List<ProfesorEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Profesor p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Profesor p");
+        return query.getResultList();
     }
     
     /**

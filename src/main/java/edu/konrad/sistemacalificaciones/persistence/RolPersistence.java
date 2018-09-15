@@ -30,8 +30,8 @@ public class RolPersistence {
      */
 
     public List<RolEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Rol p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Rol p");
+        return query.getResultList();
     }
     
     /**

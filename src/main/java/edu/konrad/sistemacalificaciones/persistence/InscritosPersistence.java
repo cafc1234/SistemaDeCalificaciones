@@ -30,8 +30,8 @@ public class InscritosPersistence {
      */
 
     public List<InscritosEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Inscritos p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Inscritos p");
+        return query.getResultList();
     }
     
     /**

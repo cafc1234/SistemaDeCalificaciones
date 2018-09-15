@@ -32,8 +32,8 @@ public class TipoDocumentoPersistence {
      */
 
     public List<TipoDocumentoEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from TipoDocumento p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from TipoDocumento p");
+        return query.getResultList();
     }
     
     /**

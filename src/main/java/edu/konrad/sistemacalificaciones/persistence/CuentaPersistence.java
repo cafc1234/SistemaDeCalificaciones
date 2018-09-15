@@ -36,8 +36,8 @@ public class CuentaPersistence {
      */
 
     public List<CuentaEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Cuenta p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Cuenta p");
+        return query.getResultList();
     }
     
     /**

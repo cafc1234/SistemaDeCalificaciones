@@ -32,8 +32,8 @@ public class CortePersistence {
      */
 
     public List<CorteEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Corte p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Corte p");
+        return query.getResultList();
     }
     
     /**

@@ -31,8 +31,8 @@ public class GrupoPersistence {
      */
 
     public List<GrupoEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Grupo p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Grupo p");
+        return query.getResultList();
     }
     
     /**

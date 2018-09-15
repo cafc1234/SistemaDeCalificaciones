@@ -31,8 +31,8 @@ public class HorariosPersistence {
      */
 
     public List<HorariosEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Horarios p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Horarios p");
+        return query.getResultList();
     }
     
     /**

@@ -32,8 +32,8 @@ public class TipoNivelPersistence {
      */
 
     public List<TipoNivelEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from TipoNivel p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from TipoNivel p");
+        return query.getResultList();
     }
     
     /**

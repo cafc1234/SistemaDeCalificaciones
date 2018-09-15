@@ -30,8 +30,8 @@ public class PersonaPersistence {
      */
 
     public List<PersonaEntity> findAll(){
-        Query queryProducto = entityManager.createQuery("select p from Persona p");
-        return queryProducto.getResultList();
+        Query query = entityManager.createQuery("select p from Persona p");
+        return query.getResultList();
     }
     
     /**
