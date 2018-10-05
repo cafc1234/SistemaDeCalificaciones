@@ -1,6 +1,6 @@
 package edu.konrad.sistemacalificaciones.persistence;
 
-import edu.konrad.sistemacalificaciones.entity.HorariosEntity;
+import edu.konrad.sistemacalificaciones.entities.HorariosEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

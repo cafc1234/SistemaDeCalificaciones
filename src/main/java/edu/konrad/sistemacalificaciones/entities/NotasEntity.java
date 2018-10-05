@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.konrad.sistemacalificaciones.entity;
+package edu.konrad.sistemacalificaciones.entities;
 
 import java.io.Serializable;
 import javax.persistence.Column;

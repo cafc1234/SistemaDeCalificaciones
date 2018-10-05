@@ -5,7 +5,7 @@
  */
 package edu.konrad.sistemacalificaciones.persistence;
 
-import edu.konrad.sistemacalificaciones.entity.CursoEntity;
+import edu.konrad.sistemacalificaciones.entities.CursoEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

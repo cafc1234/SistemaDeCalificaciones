@@ -5,7 +5,7 @@
  */
 package edu.konrad.sistemacalificaciones.persistence;
 
-import edu.konrad.sistemacalificaciones.entity.CorteEntity;
+import edu.konrad.sistemacalificaciones.entities.CorteEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -41,7 +41,7 @@ public class CortePersistence {
      * @param id
      * @return corte encontrado
      */
-    public CorteEntity find(Long id){
+    public CorteEntity find(int id){
         return entityManager.find(CorteEntity.class, id);
     }
     
@@ -68,7 +68,7 @@ public class CortePersistence {
      * Metodo usado para eliminar un corte
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         CorteEntity corteEliminar = entityManager.find(CorteEntity.class, id);
         entityManager.remove(corteEliminar);
     }

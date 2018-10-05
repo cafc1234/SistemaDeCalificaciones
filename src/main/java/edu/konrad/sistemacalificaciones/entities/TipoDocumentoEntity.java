@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.konrad.sistemacalificaciones.entity;
+package edu.konrad.sistemacalificaciones.entities;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -13,30 +13,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Clase encargada de crear la entidad de la tabla categórica Tipo nivel
+ * Clase encargada de crear la entidad de la tabla categórica Tipo documento
  *
  * @author Evelyn Guzman y Camilo Fique
  */
-@Entity(name="TipoNivel")
-public class TipoNivelEntity implements Serializable {
-    
+@Entity(name = "TipoDocumento")
+public class TipoDocumentoEntity implements Serializable {
+
     /**
      * Llave primaria de la entidad TipoDocumento
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idTipo;    
-    
-     /**
-     * Columna que hace referencia al nombre del tipo de curso
+    private int idTipo;
+
+    /**
+     * Columna que hace referencia al nombre del tipo de documento
      */
-    @Column(name = "nombre_nivel", nullable = false)
-    private String nombreNivel;
+    @Column(name = "nombre_tipo", nullable = false)
+    private String nombreTipo;
 
     /**
      * Métodos GET y SET
      */
-    
     public int getIdTipo() {
         return idTipo;
     }
@@ -45,15 +44,12 @@ public class TipoNivelEntity implements Serializable {
         this.idTipo = idTipo;
     }
 
-    public String getNombreNivel() {
-        return nombreNivel;
+    public String getNombreTipo() {
+        return nombreTipo;
     }
 
-    public void setNombreNivel(String nombreNivel) {
-        this.nombreNivel = nombreNivel;
+    public void setNombreTipo(String nombreTipo) {
+        this.nombreTipo = nombreTipo;
     }
-    
-    
- 
-    
+
 }

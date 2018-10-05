@@ -6,7 +6,7 @@
 package edu.konrad.sistemacalificaciones.persistence;
 
 
-import edu.konrad.sistemacalificaciones.entity.TipoNivelEntity;
+import edu.konrad.sistemacalificaciones.entities.TipoNivelEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
