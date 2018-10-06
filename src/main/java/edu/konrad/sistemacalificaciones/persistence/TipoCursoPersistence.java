@@ -41,7 +41,7 @@ public class TipoCursoPersistence {
      * @param id
      * @return tipo curso encontrado
      */
-    public TipoCursoEntity find(Long id){
+    public TipoCursoEntity find(int id){
         return entityManager.find(TipoCursoEntity.class, id);
     }
     
@@ -68,7 +68,7 @@ public class TipoCursoPersistence {
      * Metodo usado para eliminar un tipoCurso
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         TipoCursoEntity tipoCursoEliminar = entityManager.find(TipoCursoEntity.class, id);
         entityManager.remove(tipoCursoEliminar);
     }

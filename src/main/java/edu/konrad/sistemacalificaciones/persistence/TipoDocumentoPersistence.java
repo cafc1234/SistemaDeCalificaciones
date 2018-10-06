@@ -59,7 +59,7 @@ public class TipoDocumentoPersistence {
      * Metodo usado para eliminar un tipoDocumento
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         TipoDocumentoEntity tipoDocumentoEliminar = entityManager.find(TipoDocumentoEntity.class, id);
         entityManager.remove(tipoDocumentoEliminar);
     }

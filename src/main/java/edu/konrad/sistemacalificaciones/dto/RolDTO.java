@@ -32,13 +32,13 @@ public class RolDTO {
      /**
      * Constructor por defecto
      */
-    private RolDTO(){
+    public RolDTO(){
     }
     
      /**
      * Transformación entidad - objeto
      *
-     * @param RolEntity
+     * @param rolEntity
      */
     
     public RolDTO(RolEntity rolEntity){
