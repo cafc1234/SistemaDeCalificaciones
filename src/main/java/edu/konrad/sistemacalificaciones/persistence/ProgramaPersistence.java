@@ -40,7 +40,7 @@ public class ProgramaPersistence {
      * @param id
      * @return programa encontrado
      */
-    public ProgramaEntity find(Long id){
+    public ProgramaEntity find(int id){
         return entityManager.find(ProgramaEntity.class, id);
     }
 
@@ -68,7 +68,7 @@ public class ProgramaPersistence {
      * Metodo usado para eliminar un programa
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         ProgramaEntity programaEliminar = entityManager.find(ProgramaEntity.class, id);
         entityManager.remove(programaEliminar);
     }

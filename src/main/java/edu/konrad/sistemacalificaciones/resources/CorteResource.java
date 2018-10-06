@@ -33,19 +33,19 @@ public class CorteResource {
     private CorteLogic corteLogic;
     
     /**
-     * Metodo que obtiene todos los datos de producto
-     * @return Lista ProductoDTO
+     * Metodo que obtiene todos los datos de corte
+     * @return Lista CorteDTO
      */
     @GET
-    public List<CorteDTO> getProductoList(){
+    public List<CorteDTO> getCorteList(){
         List <CorteEntity> cortes = corteLogic.obtenerCorte();
-        return CorteDTO.toProductoList(cortes);
+        return CorteDTO.toCorteList(cortes);
     }
     
      /**
-     * Obtener producto por su id
+     * Obtener corte por su id
      * @param id
-     * @return ProductoEntity
+     * @return corteEntity
      */
     @GET
     @Path("{id: \\d+}")
@@ -59,7 +59,7 @@ public class CorteResource {
     
     @POST
     public CorteDTO createCorte(CorteDTO corteDTO){
-        return new CorteDTO(corteLogic.crearProducto(corteDTO.toEntity()));
+        return new CorteDTO(corteLogic.crearCorte(corteDTO.toEntity()));
     }
     
     
@@ -84,7 +84,7 @@ public class CorteResource {
     public void deleteCorte(@PathParam("id") int id){
         CorteEntity corteEntity = corteLogic.obtenerCorte(id);
         if(corteEntity == null){
-            throw new RuntimeException("El producto no existe.");
+            throw new RuntimeException("El corte no existe.");
         }
         corteLogic.eliminarCorte(id);
     }    

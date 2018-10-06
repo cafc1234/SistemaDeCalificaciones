@@ -55,7 +55,7 @@ public class CorteLogic {
      * @param corteCrear
      * @return corte creado
      */
-    public CorteEntity crearProducto(CorteEntity corteCrear) {
+    public CorteEntity crearCorte(CorteEntity corteCrear) {
         cortePersistence.create(corteCrear);
         return corteCrear;
     }

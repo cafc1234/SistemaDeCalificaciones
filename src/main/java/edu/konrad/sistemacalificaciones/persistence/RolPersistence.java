@@ -39,7 +39,7 @@ public class RolPersistence {
      * @param id
      * @return rol encontrado
      */
-    public RolEntity find(Long id){
+    public RolEntity find(int id){
         return entityManager.find(RolEntity.class, id);
     }
 
@@ -67,7 +67,7 @@ public class RolPersistence {
      * Metodo usado para eliminar un rol
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         RolEntity rolEliminar = entityManager.find(RolEntity.class, id);
         entityManager.remove(rolEliminar);
     }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Clase encargada del mapeo objeto relacional de la entidad Producto
+ * Clase encargada del mapeo objeto relacional de la entidad Corte
  *
  * @author Evelyn Guzman y Camilo Fique.
  */
@@ -61,7 +61,7 @@ public class CorteDTO {
      * @param listaCortes
      * @return
      */
-    public static List<CorteDTO> toProductoList(List<CorteEntity> listaCortes) {
+    public static List<CorteDTO> toCorteList(List<CorteEntity> listaCortes) {
         List<CorteDTO> listaCorteDTO = new ArrayList<>();
         for (CorteEntity entity : listaCortes) {
             listaCorteDTO.add(new CorteDTO(entity));

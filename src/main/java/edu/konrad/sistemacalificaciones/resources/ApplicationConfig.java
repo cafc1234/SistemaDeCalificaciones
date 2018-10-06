@@ -22,7 +22,13 @@ public class ApplicationConfig extends Application {
         return resources;      
     }
     
+    // Se agregan los recursos correspondientes para la ejecución de los servicios REST 
+    
     private void addRestResourceClasses(Set<Class<?>> resources){
         resources.add(edu.konrad.sistemacalificaciones.resources.CorteResource.class);
+        resources.add(edu.konrad.sistemacalificaciones.resources.RolResource.class);
+        resources.add(edu.konrad.sistemacalificaciones.resources.ProgramaResource.class);
+
+
     }    
 }
