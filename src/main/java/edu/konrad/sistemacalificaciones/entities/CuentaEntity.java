@@ -47,7 +47,7 @@ public class CuentaEntity implements Serializable {
      */
     @ManyToOne
     @JoinColumn(name = "idRol")
-    private RolEntity Rol;
+    private RolEntity rol;
 
     /**
      * Métodos GET y SET
@@ -77,11 +77,11 @@ public class CuentaEntity implements Serializable {
     }
 
     public RolEntity getRol() {
-        return Rol;
+        return rol;
     }
 
-    public void setRol(RolEntity Rol) {
-        this.Rol = Rol;
+    public void setRol(RolEntity rol) {
+        this.rol = rol;
     }
 
 }
