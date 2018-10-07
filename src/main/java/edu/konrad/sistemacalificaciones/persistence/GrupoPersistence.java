@@ -40,7 +40,7 @@ public class GrupoPersistence {
      * @param id
      * @return grupo encontrado
      */
-    public GrupoEntity find(Long id){
+    public GrupoEntity find(int id){
         return entityManager.find(GrupoEntity.class, id);
     }
 
@@ -68,7 +68,7 @@ public class GrupoPersistence {
      * Metodo usado para eliminar un grupo
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         GrupoEntity grupoEliminar = entityManager.find(GrupoEntity.class, id);
         entityManager.remove(grupoEliminar);
     }
