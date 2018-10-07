@@ -36,6 +36,16 @@ public class TipoNivelPersistence {
         return query.getResultList();
     }
     
+        /**
+     * Metodo que busca un objeto TipoNivel  mediante su id
+     * @param id
+     * @return corte encontrado
+     */
+    public TipoNivelEntity find(int id){
+        return entityManager.find(TipoNivelEntity.class, id);
+    }
+    
+    
     /**
      * Metodo para crear un objeto de la entidad tipoNivel
      * @param tipoNivelNuevo
@@ -59,7 +69,7 @@ public class TipoNivelPersistence {
      * Metodo usado para eliminar un tipoNivel
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         TipoNivelEntity tipoNivelEliminar = entityManager.find(TipoNivelEntity.class, id);
         entityManager.remove(tipoNivelEliminar);
     }
