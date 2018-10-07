@@ -26,8 +26,9 @@ public class ApplicationConfig extends Application {
     
     private void addRestResourceClasses(Set<Class<?>> resources){
         resources.add(edu.konrad.sistemacalificaciones.resources.CorteResource.class);
-        resources.add(edu.konrad.sistemacalificaciones.resources.RolResource.class);
+        resources.add(edu.konrad.sistemacalificaciones.resources.CuentaResource.class);
         resources.add(edu.konrad.sistemacalificaciones.resources.ProgramaResource.class);
+        resources.add(edu.konrad.sistemacalificaciones.resources.RolResource.class);
 
 
     }    
