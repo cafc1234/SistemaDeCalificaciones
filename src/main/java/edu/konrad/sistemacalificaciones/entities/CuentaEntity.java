@@ -32,7 +32,7 @@ public class CuentaEntity implements Serializable {
     /**
      * Columna que hace referencia al código de inicio de cada cuenta
      */
-    @Column(name = "codigo", nullable = false, unique = true)
+    @Column(name = "codigo", nullable = false)
     private Long codigo;
 
     /**

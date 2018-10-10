@@ -31,6 +31,7 @@ public class ApplicationConfig extends Application {
         resources.add(edu.konrad.sistemacalificaciones.resources.ProgramaResource.class);
         resources.add(edu.konrad.sistemacalificaciones.resources.RolResource.class);
         resources.add(edu.konrad.sistemacalificaciones.resources.TipoCursoResource.class);
+        resources.add(edu.konrad.sistemacalificaciones.resources.TipoDocumentoResource.class);
         resources.add(edu.konrad.sistemacalificaciones.resources.TipoNivelResource.class);
 
 

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 /**
  * Clase encargada de crear la entidad Rol
  *
@@ -51,5 +52,7 @@ public class RolEntity implements Serializable {
     public void setNombreRol(String nombreRol) {
         this.nombreRol = nombreRol;
     }
+    
+
 
 }

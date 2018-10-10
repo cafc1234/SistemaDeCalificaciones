@@ -36,6 +36,15 @@ public class TipoDocumentoPersistence {
         return query.getResultList();
     }
     
+            /**
+     * Metodo que busca un objeto TipoNivel  mediante su id
+     * @param id
+     * @return corte encontrado
+     */
+    public TipoDocumentoEntity find(int id){
+        return entityManager.find(TipoDocumentoEntity.class, id);
+    }
+    
     /**
      * Metodo para crear un objeto de la entidad tipoDocumento
      * @param tipoDocumentoNuevo

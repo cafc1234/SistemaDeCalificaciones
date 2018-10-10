@@ -34,7 +34,7 @@ public class CuentaDTO {
     /**
      * Atributo que hace referencia al tipo rol del objeto cuenta
      */
-    private RolDTO rol;
+    private RolDTO idRol;
 
     /**
      * Constructor vacio
@@ -55,7 +55,7 @@ public class CuentaDTO {
             RolEntity rolEntity = new RolEntity();
             rolEntity.setIdRol(cuentaEntity.getRol().getIdRol());
             rolEntity.setNombreRol(cuentaEntity.getRol().getNombreRol());
-            this.rol = new RolDTO(rolEntity);
+            this.idRol = new RolDTO(rolEntity);
         }
     }
 
@@ -70,10 +70,10 @@ public class CuentaDTO {
         cuentaEntity.setCodigo(this.codigo);
         cuentaEntity.setIdCuenta(this.id);
         cuentaEntity.setPassword(this.password);
-        if (this.rol != null) {
+        if (this.idRol != null) {
             RolEntity rolEntity = new RolEntity();
-            rolEntity.setIdRol(this.rol.getId());
-            rolEntity.setNombreRol(this.rol.getNombreRol());
+            rolEntity.setIdRol(this.idRol.getId());
+            rolEntity.setNombreRol(this.idRol.getNombreRol());
             cuentaEntity.setRol(rolEntity);
         }
         return cuentaEntity;
