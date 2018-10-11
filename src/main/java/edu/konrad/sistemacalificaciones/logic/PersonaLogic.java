@@ -66,7 +66,7 @@ public class PersonaLogic {
      * @param personaActualizar
      * @return persona actualizado
      */
-    public PersonaEntity actualizarPersona(Long id, PersonaEntity personaActualizar) {
+    public PersonaEntity actualizarPersona(int id, PersonaEntity personaActualizar) {
         PersonaEntity personaUpdate = personaPersistence.update(personaActualizar);
         return personaUpdate;
     }
