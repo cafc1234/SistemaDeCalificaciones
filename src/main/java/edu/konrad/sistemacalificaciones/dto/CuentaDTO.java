@@ -92,5 +92,40 @@ public class CuentaDTO {
             listaCuentasDTO.add(new CuentaDTO(entity));
         }
         return listaCuentasDTO;
-    }    
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public RolDTO getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(RolDTO idRol) {
+        this.idRol = idRol;
+    }
+        
+        
+        
 }

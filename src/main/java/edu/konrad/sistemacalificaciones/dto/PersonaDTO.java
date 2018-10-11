@@ -59,6 +59,11 @@ public class PersonaDTO {
     private String correo;
 
     /**
+     * Atributo que hace referencia al programa del objeto Persona
+     */
+    private ProgramaDTO programa;
+
+    /**
      * Constructor vacio
      */
     public PersonaDTO() {
@@ -82,7 +87,9 @@ public class PersonaDTO {
         this.documento = personaEntity.getDocumento();
         this.genero = personaEntity.getGenero();
         this.correo = personaEntity.getCorreo();
-
+        if (personaEntity.getPrograma() != null) {
+            this.programa = new ProgramaDTO(personaEntity.getPrograma());
+        }
     }
 
     /**
@@ -105,22 +112,97 @@ public class PersonaDTO {
         personaEntity.setDocumento(this.documento);
         personaEntity.setGenero(this.genero);
         personaEntity.setCorreo(this.correo);
+        if (this.programa != null) {
+            personaEntity.setPrograma(this.programa.toEntity());
+        }
         return personaEntity;
+
     }
-    
-     /**
+
+    /**
      * Conversión masiva de objeto a entidad
      *
      * @param listaPersonas
      * @return
      */
-    
-        public static List<PersonaDTO> toPersonaList(List<PersonaEntity> listaPersonas) {
+    public static List<PersonaDTO> toPersonaList(List<PersonaEntity> listaPersonas) {
         List<PersonaDTO> listaPersonasDTO = new ArrayList<>();
         for (PersonaEntity entity : listaPersonas) {
             listaPersonasDTO.add(new PersonaDTO(entity));
         }
         return listaPersonasDTO;
-    }    
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public CuentaDTO getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(CuentaDTO codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public TipoDocumentoDTO getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(TipoDocumentoDTO tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public Long getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(Long documento) {
+        this.documento = documento;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public ProgramaDTO getPrograma() {
+        return programa;
+    }
+
+    public void setPrograma(ProgramaDTO programa) {
+        this.programa = programa;
+    }
 
 }

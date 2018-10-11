@@ -83,4 +83,30 @@ public class ProfesorDTO {
         }
         return listaProfesoresDTO;
     }    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public PersonaDTO getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(PersonaDTO codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getAreaProfundizacion() {
+        return areaProfundizacion;
+    }
+
+    public void setAreaProfundizacion(String areaProfundizacion) {
+        this.areaProfundizacion = areaProfundizacion;
+    }
+        
+        
 }

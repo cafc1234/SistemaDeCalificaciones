@@ -58,5 +58,23 @@ public class TipoDocumentoDTO {
         return listaTipoDocumentoDTO;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombreTipo() {
+        return nombreTipo;
+    }
+
+    public void setNombreTipo(String nombreTipo) {
+        this.nombreTipo = nombreTipo;
+    }
+    
+    
+
     
 }

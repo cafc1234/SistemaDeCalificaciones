@@ -40,7 +40,7 @@ public class CursoPersistence {
      * @param id
      * @return curso encontrado
      */
-    public CursoEntity find(Long id){
+    public CursoEntity find(int id){
         return entityManager.find(CursoEntity.class, id);
     }
 
@@ -68,7 +68,7 @@ public class CursoPersistence {
      * Metodo usado para eliminar un curso
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         CursoEntity cursoEliminar = entityManager.find(CursoEntity.class, id);
         entityManager.remove(cursoEliminar);
     }
