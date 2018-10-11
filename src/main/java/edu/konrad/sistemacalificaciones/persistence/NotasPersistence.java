@@ -39,7 +39,7 @@ public class NotasPersistence {
      * @param id
      * @return nota encontrada
      */
-    public NotasEntity find(Long id){
+    public NotasEntity find(int id){
         return entityManager.find(NotasEntity.class, id);
     }
 
@@ -67,7 +67,7 @@ public class NotasPersistence {
      * Metodo usado para eliminar una nota
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         NotasEntity notasEliminar = entityManager.find(NotasEntity.class, id);
         entityManager.remove(notasEliminar);
     }

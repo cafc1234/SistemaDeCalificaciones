@@ -39,7 +39,7 @@ public class InscritosPersistence {
      * @param id
      * @return inscrito encontrado
      */
-    public InscritosEntity find(Long id){
+    public InscritosEntity find(int id){
         return entityManager.find(InscritosEntity.class, id);
     }
 
@@ -67,7 +67,7 @@ public class InscritosPersistence {
      * Metodo usado para eliminar un inscrito
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         InscritosEntity inscritosEliminar = entityManager.find(InscritosEntity.class, id);
         entityManager.remove(inscritosEliminar);
     }

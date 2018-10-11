@@ -28,16 +28,9 @@ public class HorariosEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idHorario;
     
-     /**
-     * Columna que hace referencia al id del curso y se relaciona con la
-     * tabla Horarios
-     */
-    @ManyToOne
-    @JoinColumn(name = "idCurso")
-    private CursoEntity curso;
     
      /**
-     * Columna que hace referencia al id del grupo y se relaciona con la
+     * Columna que hace referencia al id del grupo e id del curso y se relaciona con la
      * tabla Horarios
      */
     @ManyToOne
@@ -77,14 +70,6 @@ public class HorariosEntity implements Serializable{
 
     public void setIdHorario(int idHorario) {
         this.idHorario = idHorario;
-    }
-
-    public CursoEntity getCurso() {
-        return curso;
-    }
-
-    public void setCurso(CursoEntity curso) {
-        this.curso = curso;
     }
 
     public CursoEntity getGrupo() {

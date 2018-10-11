@@ -40,7 +40,7 @@ public class HorariosPersistence {
      * @param id
      * @return horario encontrado
      */
-    public HorariosEntity find(Long id){
+    public HorariosEntity find(int id){
         return entityManager.find(HorariosEntity.class, id);
     }
 
@@ -68,7 +68,7 @@ public class HorariosPersistence {
      * Metodo usado para eliminar un horario
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         HorariosEntity horariosEliminar = entityManager.find(HorariosEntity.class, id);
         entityManager.remove(horariosEliminar);
     }

@@ -37,13 +37,6 @@ public class InscritosEntity implements Serializable {
     @JoinColumn(name = "idGrupo")
     private CursoEntity grupo;
 
-     /**
-     * Columna que hace referencia al id del curso y se relaciona con la
-     * tabla Curso
-     */
-    @ManyToOne
-    @JoinColumn(name = "idCurso")
-    private CursoEntity curso;
     
      /**
      * Columna que hace referencia al código del estudiante y se relaciona con la tabla persona
@@ -72,13 +65,6 @@ public class InscritosEntity implements Serializable {
         this.grupo = grupo;
     }
 
-    public CursoEntity getCurso() {
-        return curso;
-    }
-
-    public void setCurso(CursoEntity curso) {
-        this.curso = curso;
-    }
 
     public PersonaEntity getEstudiante() {
         return estudiante;
