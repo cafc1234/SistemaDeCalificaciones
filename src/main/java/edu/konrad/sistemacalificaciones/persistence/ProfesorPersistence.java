@@ -41,7 +41,7 @@ public class ProfesorPersistence {
      * @param id
      * @return profesor encontrado
      */
-    public ProfesorEntity find(Long id){
+    public ProfesorEntity find(int id){
         return entityManager.find(ProfesorEntity.class, id);
     }
 
@@ -69,7 +69,7 @@ public class ProfesorPersistence {
      * Metodo usado para eliminar un profesor
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         ProfesorEntity profesorEliminar = entityManager.find(ProfesorEntity.class, id);
         entityManager.remove(profesorEliminar);
     }

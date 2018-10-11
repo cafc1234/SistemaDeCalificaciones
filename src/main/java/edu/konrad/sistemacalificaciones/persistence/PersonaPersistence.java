@@ -39,7 +39,7 @@ public class PersonaPersistence {
      * @param id
      * @return persona encontrada
      */
-    public PersonaEntity find(Long id){
+    public PersonaEntity find(int id){
         return entityManager.find(PersonaEntity.class, id);
     }
 
@@ -67,7 +67,7 @@ public class PersonaPersistence {
      * Metodo usado para eliminar una persona
      * @param id 
      */
-    public void remove(Long id){
+    public void remove(int id){
         PersonaEntity personaEliminar = entityManager.find(PersonaEntity.class, id);
         entityManager.remove(personaEliminar);
     }
