@@ -1,11 +1,33 @@
- .footer-sistema{
-  background-color:  #424242;  
-  padding-top: 1%; 
-  
- }
- .footer-sistema h4{
-  color: white;
- }
- .footer-sistema img{
-  margin-top: 5%   
- }
+.footer-sistema{
+    background-color:  #424242;  
+    padding-top: 1%; 
+    height:20.5%
+}
+.footer-sistema h4{
+
+    color: white;
+}
+.footer-sistema img{
+    margin-top: 5%   
+}
+body{
+
+    background: url(../img/fondo_konrad.jpg) no-repeat fixed center;
+    background-size: cover;
+    height: auto;
+    width: 100% ; 
+
+
+}
+.login{
+    margin-top:8%;
+    margin-bottom:8%;
+    margin-left:35%;
+    margin-right:35%;
+    padding: 2%;
+    background-color: #ffffff;
+}
+footer .fab {
+    font-size: 35px;
+    color: white;    
+}
