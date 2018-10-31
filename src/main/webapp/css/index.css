@@ -7,6 +7,7 @@
 
     color: white;
 }
+
 .footer-sistema img{
     margin-top: 5%   
 }
@@ -21,7 +22,7 @@ body{
 }
 .login{
     margin-top:8%;
-    margin-bottom:8%;
+    margin-bottom:7.3%;
     margin-left:35%;
     margin-right:35%;
     padding: 2%;
