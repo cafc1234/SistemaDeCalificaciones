@@ -1,19 +1,23 @@
+.navbar{
+ height: 100px;   
+ margin-bottom: 0;
+ border-radius:0;
+}
+
 .bg-primary{
     background-color: #424242 !important;
 }
 .menu{
     background-color: #585858;
+    min-height: 100%;
 }
-.footer-sistema{
-    background-color:  #424242;  
-    padding-top: 1%; 
-    height:20.5%
-}
-.footer-sistema h4{
-
-    color: white;
+.principal{
+    padding-top:1.5%;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
-.footer-sistema img{
-    margin-top: 5%   
+
+body{
+    background-color: #F2F2F2;
 }
