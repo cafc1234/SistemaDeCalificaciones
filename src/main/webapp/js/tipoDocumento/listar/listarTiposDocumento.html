@@ -1,0 +1,48 @@
+<h3>Tipos de documento</h3>
+<br>
+<div id="tableProducto">
+    <table class="table table-striped">
+        <thead>
+        <th>id</th>
+        <th>Nombre tipo</th>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="tipo in tipos">
+                <td>{{tipo.id}}</td>
+                <td>{{tipo.nombreTipo}}</td>
+                <td>
+                    <button class="btn btn-danger" >Eliminar</button>
+                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizar(tipo.id,tipo.nombreTipo)">Actualizar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Modal -->
+    <div id="modalActualizar" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Actualizar</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">Nombre tipo</label>
+                            <input type="text" class="form-control" id="nombre" ng-value="prueba" placeholder="Nombre tipo">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>

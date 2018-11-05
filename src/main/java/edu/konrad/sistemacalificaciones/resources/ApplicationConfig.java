@@ -13,7 +13,7 @@ import javax.ws.rs.core.Application;
  * Representa el registro de las clases que se personalizan como servicios REST
  * @author Evelyn Guzman y Camilo Fique.
  */
-@ApplicationPath("/api")
+@ApplicationPath("api")
 public class ApplicationConfig extends Application {
     @Override
     public Set<Class<?>> getClasses(){
