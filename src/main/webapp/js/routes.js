@@ -16,5 +16,15 @@ views:{
    }    
 }
 });
+
+$stateProvider.state("estudiante",{
+url:'/estudiante',
+views:{
+   mainView:{
+     templateUrl:'./js/estudiante/listar/listarEstudiantes.html',
+     controller:'estudianteCtrl'
+   }    
+}
+});
         
 }]);

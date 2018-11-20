@@ -1,0 +1,89 @@
+<div class="col-md-9">
+    <h3>Estudiantes</h3>
+</div>
+<div class="col-md-3">
+    <br>
+    <button class="btn btn-light btn-block" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="">Agregar</button>
+</div>
+<br>
+<br>
+<div id="tableEstudiante">
+    <table class="table table-striped">
+        <thead>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Tipo de documento</th>
+        <th>Número</th>
+        <th>Genero</th>
+        <th>Correo</th>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+    </table>
+</div>
+
+<div id="modalActualizar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{tipoModal}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" ng-model="" class="form-control" id="nombre" ng-value="" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" ng-model="" class="form-control" id="apellido" ng-value="" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">correo</label>
+                            <input type="email" ng-model="" class="form-control" id="correo" ng-value="" placeholder="Correo">
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="codigo">Código</label>
+                            <input type="text" ng-model="" class="form-control" id="codigo" ng-value="" placeholder="Código">
+                        </div>
+                        <div class="form-group">
+                            <label for="selectGenero">Genero:</label>
+                            <select class="form-control" id="selectGenero">
+                                <option>Hombre</option>
+                                <option>Mujer</option>
+                                <option>No indica</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectPrograma">Programa:</label>
+                            <select class="form-control" id="selectPrograma">
+                                <option>sin programas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <small>La clave por defecto que será asignada será el código del estudiante</small>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="botonCerrar">Cerrar</button>
+                <button class="btn btn-primary" ng-if="valorId==0" id="crearBoton" ng-click="crearTipoDocumento()">Crear</button>
+                <button class="btn btn-primary" ng-if="valorId!==0" id="crearBoton" ng-click="guardarTipoDocumento()">Actualizar</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>

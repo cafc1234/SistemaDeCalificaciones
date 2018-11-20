@@ -22,6 +22,16 @@ tipoDocumentoModule.controller('listarTipoDocumentoCtrl', ['$scope', '$http', '$
 
         $scope.crearTipoDocumento = function () {
             $scope.cerrarModal();
+            if ($scope.tipoDocumento.nombreTipo ) {
+                
+                $http.post('api/tiposDocumento/', JSON.stringify($scope.tipoDocumento)).then(function (response) {
+                    $scope.tipoDocumento = {};
+                    $state.reload();
+                }, function (error) {
+                    console.log(error);
+                });
+            }
+            ;
         };
         $scope.cerrarModal = function () {
             document.getElementById("botonCerrar").click();
@@ -29,7 +39,6 @@ tipoDocumentoModule.controller('listarTipoDocumentoCtrl', ['$scope', '$http', '$
         };
         $scope.guardarTipoDocumento = function () {
             $scope.cerrarModal();
-            alert($scope.tipoModal.nombreTipo);
             if ($scope.tipoDocumento.nombreTipo && $scope.valorId) {
                 $scope.tipoDocumento.id = $scope.valorId;
 
