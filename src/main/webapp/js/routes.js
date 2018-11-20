@@ -26,5 +26,15 @@ views:{
    }    
 }
 });
+
+$stateProvider.state("programa",{
+url:'/programa',
+views:{
+   mainView:{
+     templateUrl:'./js/programa/listar/listarProgramas.html',
+     controller:'listarProgramaCtrl'
+   }    
+}
+});
         
 }]);

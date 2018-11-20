@@ -1,18 +1,18 @@
-var tipoDocumentoModule = angular.module("tipoDocumentoModule");
+var programaModule = angular.module("programaModule");
 //El controlador quedará asociado al modulo
 
-tipoDocumentoModule.controller('listarTipoDocumentoCtrl', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+programaModule.controller('listarProgramaCtrl', ['$scope', '$http', '$state', function ($scope, $http, $state) {
 
-    //Almacenar arreglo de tipos que retorna el servicio GET
-    $scope.tipoDocumento = {};
+    //Almacenar arreglo de programas que retorna el servicio GET
+    $scope.programa = {};
 
-    $scope.tipos = new Array();
+    $scope.programas = new Array();
 
     // metodo necesario para que se recargue correctamente la pagina, el $state no esta sirviendo por que recarga y no espera que se termine la ejecucion de la accion
     reload = function () {
-      $http.get('api/tiposDocumento').then(function (response) {
+      $http.get('api/programas').then(function (response) {
         console.log(response);
-        $scope.tipos = response.data;
+        $scope.programas = response.data;
       }, function (error) {
         console.log(error);
       });
@@ -20,17 +20,17 @@ tipoDocumentoModule.controller('listarTipoDocumentoCtrl', ['$scope', '$http', '$
     
     reload();
 
-    $scope.actualizarCrear = function (id, nombreTipo, tipoModal) {
-      $scope.valorNombre = nombreTipo;
+    $scope.actualizarCrear = function (id, nombrePrograma, tipoModal) {
+      $scope.valorNombre = nombrePrograma;
       $scope.valorId = id;
       $scope.tipoModal = tipoModal;
     };
 
-    $scope.crearTipoDocumento = function () {
-      if ($scope.tipoDocumento.nombreTipo) {
-        $scope.tipoDocumento.id = $scope.valorId;
-        $http.post('api/tiposDocumento/', JSON.stringify($scope.tipoDocumento)).then(function (response) {
-          $scope.tipoDocumento = {};
+    $scope.crearPrograma = function () {
+      if ($scope.programa.nombrePrograma) {
+        $scope.programa.id = $scope.valorId;
+        $http.post('api/programas/', JSON.stringify($scope.programa)).then(function (response) {
+          $scope.programa = {};
           // se llama el metodo de cierre del modal
           $scope.cerrarModal();
           //se recarga la pagina, con el metodo creado que vuelve a llamar el get de los datos
@@ -47,12 +47,12 @@ tipoDocumentoModule.controller('listarTipoDocumentoCtrl', ['$scope', '$http', '$
 
     };
 
-    $scope.guardarTipoDocumento = function () {
-      if ($scope.tipoDocumento.nombreTipo && $scope.valorId) {
-        $scope.tipoDocumento.id = $scope.valorId;
+    $scope.guardarPrograma = function () {
+      if ($scope.programa.nombrePrograma && $scope.valorId) {
+        $scope.programa.id = $scope.valorId;
 
-        $http.put('api/tiposDocumento/' + $scope.valorId, JSON.stringify($scope.tipoDocumento)).then(function (response) {
-          $scope.tipoDocumento = {};
+        $http.put('api/programas/' + $scope.valorId, JSON.stringify($scope.programa)).then(function (response) {
+          $scope.programa = {};
           // se llama el metodo de cierre del modal
           $scope.cerrarModal();
           //se recarga la pagina, con el metodo creado que vuelve a llamar el get de los datos
@@ -66,7 +66,7 @@ tipoDocumentoModule.controller('listarTipoDocumentoCtrl', ['$scope', '$http', '$
 
 
     $scope.eliminar = function (id) {
-      $http.delete('api/tiposDocumento/' + id).then(function (response) {
+      $http.delete('api/programas/' + id).then(function (response) {
         //Recargar la pag
         $state.reload();
       }, function (error) {

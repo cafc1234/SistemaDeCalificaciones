@@ -1,4 +1,4 @@
-   <html ng-app="SistemaCalificaciones">
+<html ng-app="SistemaCalificaciones">
     <head>
         <title>Sistema Calificaciones</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,6 +27,13 @@
                 <div class="col-md-2 menu">
                     <br>
                     <div class="dropdown">
+                        <button class="btn btn-light btn-block dropdown-toggle" type="button" data-toggle="dropdown">Universidad
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#!/programa">Programas</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
                         <button class="btn btn-light btn-block dropdown-toggle" type="button" data-toggle="dropdown">Personas
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
@@ -51,6 +58,8 @@
         <script src="js/tipoDocumento/listar/tipoDocumento.listar.ctrl.js" type="text/javascript"></script>
         <script src="js/estudiante/estudiante.module.js" type="text/javascript"></script>
         <script src="js/estudiante/listar/estudiante.listar.ctrl.js" type="text/javascript"></script>
+        <script src="js/programa/programa.module.js" type="text/javascript"></script>
+        <script src="js/programa/listar/programa.listar.ctrl.js" type="text/javascript"></script>
     </body>
 </html>
 
