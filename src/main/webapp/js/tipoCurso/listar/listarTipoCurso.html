@@ -1,0 +1,56 @@
+<div class="col-md-9">
+    <h3>Tipos de curso</h3>
+</div>
+<div class="col-md-3">
+    <br>
+    <button class="btn btn-light btn-block" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizarCrear(0,tipo.nombreTipo,'Crear')">Agregar</button>
+</div>
+<br>
+<br>
+<div id="tableProducto">
+    <table class="table table-striped">
+        <thead>
+        <th>id</th>
+        <th>Nombre tipo</th>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="tipo in tipos">
+                <td>{{tipo.id}}</td>
+                <td>{{tipo.nombreTipo}}</td>
+                <td>
+                    <button class="btn btn-danger" ng-click="eliminar(tipo.id)" >Eliminar</button>
+                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizarCrear(tipo.id,tipo.nombreTipo,'Actualizar')">Actualizar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="modalActualizar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{tipoModal}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre tipo</label>
+                        <input type="hidden" ng-model="tipoCurso.id" id="id" ng-value="valorId">
+                        <input type="text" ng-model="tipoCurso.nombreTipo" class="form-control" id="nombreTipo" ng-value="valorNombre" placeholder="Nombre tipo">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="botonCerrar">Cerrar</button>
+                <button class="btn btn-primary" ng-if="valorId==0" id="crearBoton" ng-click="crearTipoCurso()">Crear</button>
+                <button class="btn btn-primary" ng-if="valorId!==0" id="crearBoton" ng-click="guardarTipoCurso()">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
