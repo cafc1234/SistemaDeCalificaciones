@@ -17,6 +17,16 @@ views:{
 }
 });
 
+$stateProvider.state("tipoCurso",{
+url:'/tipoCurso',
+views:{
+   mainView:{
+     templateUrl:'./js/tipoCurso/listar/listarTiposCurso.html',
+     controller:'listarTipoCursoCtrl'
+   }    
+}
+});
+
 $stateProvider.state("estudiante",{
 url:'/estudiante',
 views:{

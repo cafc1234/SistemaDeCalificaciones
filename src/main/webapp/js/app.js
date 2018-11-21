@@ -3,6 +3,7 @@ var app = angular.module("SistemaCalificaciones",[
     'ngRoute',
     'ui.router',
     'tipoDocumentoModule',
+    'tipoCursoModule',
     'estudianteModule',
     'programaModule'
 ]);
