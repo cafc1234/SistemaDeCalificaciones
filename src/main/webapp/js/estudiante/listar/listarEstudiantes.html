@@ -3,7 +3,7 @@
 </div>
 <div class="col-md-3">
     <br>
-    <button class="btn btn-light btn-block" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="">Agregar</button>
+    <button class="btn btn-light btn-block" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizarCrear(0,'Agregar')">Agregar</button>
 </div>
 <br>
 <br>
@@ -16,9 +16,20 @@
         <th>Número</th>
         <th>Genero</th>
         <th>Correo</th>
+        <th>Opciones</th>
         </thead>
         <tbody>
-
+            <tr ng-repeat="estudiante in estudiantes" ng-if="estudiante.codigo.idRol.nombreRol=='Estudiante'">
+                <td>{{estudiante.codigo.codigo}}</td>
+                <td>{{estudiante.nombre}} {{estudiante.apellido}}</td>
+                <td>{{estudiante.tipoDocumento.nombreTipo}}</td>
+                <td>{{estudiante.documento}}</td>
+                <td>{{estudiante.genero}}</td>
+                <td>{{estudiante.correo}}</td>
+                <td><button class="btn btn-danger" ng-click="eliminar(estudiante.id)" >Eliminar</button>
+                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizarCrear(estudiante.id,'Actualizar')">Actualizar</button>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -37,27 +48,33 @@
                 <form>
                     <div class="col-md-6">
                         <div class="form-group">
+                            <input type="hidden" ng-model="estudiante.id" id="id_estudiante" ng-value="idEstudiante">
                             <label for="nombre">Nombre</label>
-                            <input type="text" ng-model="" class="form-control" id="nombre" ng-value="" placeholder="Nombre">
+                            <input type="text"  ng-model="estudiante.nombre" class="form-control" id="nombre"  placeholder="Nombre">
                         </div>
                         <div class="form-group">
                             <label for="apellido">Apellido</label>
-                            <input type="text" ng-model="" class="form-control" id="apellido" ng-value="" placeholder="Apellido">
+                            <input type="text" ng-model="estudiante.apellido" class="form-control" id="apellido" placeholder="Apellido">
                         </div>
                         <div class="form-group">
                             <label for="correo">correo</label>
-                            <input type="email" ng-model="" class="form-control" id="correo" ng-value="" placeholder="Correo">
+                            <input type="email" ng-model="estudiante.correo" class="form-control" id="correo"  placeholder="Correo">
+                        </div>
+                        <div class="form-group">
+                            <label for="selectTipo">Tipo de documento:</label>
+                            <select class="form-control"  ng-model="tipoDocumento.id" ng-options="tipo.id as tipo.nombreTipo for tipo in tiposDocumentoEstudiantes" id="selectTipo">
+                            </select>
                         </div>
 
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="codigo">Código</label>
-                            <input type="text" ng-model="" class="form-control" id="codigo" ng-value="" placeholder="Código">
+                            <input type="text" ng-model="cuenta.codigo" class="form-control" id="codigo"  placeholder="Código">
                         </div>
                         <div class="form-group">
                             <label for="selectGenero">Genero:</label>
-                            <select class="form-control" id="selectGenero">
+                            <select class="form-control" ng-model="estudiante.genero" id="selectGenero">
                                 <option>Hombre</option>
                                 <option>Mujer</option>
                                 <option>No indica</option>
@@ -65,9 +82,13 @@
                         </div>
                         <div class="form-group">
                             <label for="selectPrograma">Programa:</label>
-                            <select class="form-control" id="selectPrograma">
-                                <option>sin programas</option>
+                            <select class="form-control" ng-model="programa.id" ng-options="programa.id as programa.nombrePrograma for programa in programasEstudiantes" id="selectPrograma" >
+
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="documento">Número de documento</label>
+                            <input type="text" ng-model="estudiante.documento" class="form-control" id="documento" placeholder="Número de documento">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -79,8 +100,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="botonCerrar">Cerrar</button>
-                <button class="btn btn-primary" ng-if="valorId==0" id="crearBoton" ng-click="crearTipoDocumento()">Crear</button>
-                <button class="btn btn-primary" ng-if="valorId!==0" id="crearBoton" ng-click="guardarTipoDocumento()">Actualizar</button>
+                <button class="btn btn-primary" ng-if="idEstudiante==0" id="crearBoton" ng-click="crearEstudiante()">Crear</button>
+                <button class="btn btn-primary" ng-if="!idEstudiante==0" id="crearBoton" ng-click="actualizarEstudiante()">Actualizar</button>
 
             </div>
         </div>
