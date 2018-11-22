@@ -16,6 +16,7 @@
         <th>Número</th>
         <th>Genero</th>
         <th>Correo</th>
+        <th>Programa</th>
         <th>Opciones</th>
         </thead>
         <tbody>
@@ -26,6 +27,7 @@
                 <td>{{estudiante.documento}}</td>
                 <td>{{estudiante.genero}}</td>
                 <td>{{estudiante.correo}}</td>
+                <td>{{estudiante.programa.nombrePrograma}}</td>
                 <td><button class="btn btn-danger" ng-click="eliminar(estudiante.id)" >Eliminar</button>
                     <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizarCrear(estudiante.id,'Actualizar')">Actualizar</button>
                 </td>
@@ -103,6 +105,29 @@
                 <button class="btn btn-primary" ng-if="idEstudiante==0" id="crearBoton" ng-click="crearEstudiante()">Crear</button>
                 <button class="btn btn-primary" ng-if="!idEstudiante==0" id="crearBoton" ng-click="actualizarEstudiante()">Actualizar</button>
 
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalConfirmar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Eliminar estudiante</h4>
+            </div>
+            <div class="modal-body">
+                ¿En verdad desea eliminar este estudiante?
+                <br>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-danger" ng-click="eliminarEstudiante()">Eliminar</button> 
             </div>
         </div>
 
