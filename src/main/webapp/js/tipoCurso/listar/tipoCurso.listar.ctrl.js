@@ -10,7 +10,7 @@ tipoCursoModule.controller('listarTipoCursoCtrl', ['$scope', '$http', '$state', 
 
     // metodo necesario para que se recargue correctamente la pagina, el $state no esta sirviendo por que recarga y no espera que se termine la ejecucion de la accion
     reload = function () {
-      $http.get('api/tiposCurso').then(function (response) {
+      $http.get('api/tipoCursos').then(function (response) {
         console.log(response);
         $scope.tipos = response.data;
       }, function (error) {
@@ -29,7 +29,7 @@ tipoCursoModule.controller('listarTipoCursoCtrl', ['$scope', '$http', '$state', 
     $scope.crearTipoCurso = function () {
       if ($scope.tipoCurso.nombreTipo) {
         $scope.tipoCurso.id = $scope.valorId;
-        $http.post('api/tiposCurso/', JSON.stringify($scope.tipoCurso)).then(function (response) {
+        $http.post('api/tipoCursos/', JSON.stringify($scope.tipoCurso)).then(function (response) {
           $scope.tipoCurso = {};
           // se llama el metodo de cierre del modal
           $scope.cerrarModal();
@@ -51,7 +51,7 @@ tipoCursoModule.controller('listarTipoCursoCtrl', ['$scope', '$http', '$state', 
       if ($scope.tipoCurso.nombreTipo && $scope.valorId) {
         $scope.tipoCurso.id = $scope.valorId;
 
-        $http.put('api/tiposCurso/' + $scope.valorId, JSON.stringify($scope.tipoCurso)).then(function (response) {
+        $http.put('api/tipoCursos/' + $scope.valorId, JSON.stringify($scope.tipoCurso)).then(function (response) {
           $scope.tipoCurso = {};
           // se llama el metodo de cierre del modal
           $scope.cerrarModal();
@@ -66,7 +66,7 @@ tipoCursoModule.controller('listarTipoCursoCtrl', ['$scope', '$http', '$state', 
 
 
     $scope.eliminar = function (id) {
-      $http.delete('api/tiposCurso/' + id).then(function (response) {
+      $http.delete('api/tipoCursos/' + id).then(function (response) {
         //Recargar la pag
         $state.reload();
       }, function (error) {
