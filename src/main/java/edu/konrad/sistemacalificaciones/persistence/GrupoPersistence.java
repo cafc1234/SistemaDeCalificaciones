@@ -22,7 +22,7 @@ public class GrupoPersistence {
      /**
      * Instancia del entity manager
      */
-    @PersistenceContext(unitName = "calificacionesPU")
+    @PersistenceContext(unitName = "calificacionesUP")
     private EntityManager entityManager;
 
     /**

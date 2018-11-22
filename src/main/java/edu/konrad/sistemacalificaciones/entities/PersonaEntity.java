@@ -35,11 +35,11 @@ public class PersonaEntity implements Serializable {
      * Columna que hace referencia al codigo de la cuenta y es una relación uno
      * a uno con la tabla cuenta tabla Rol
      */
-    @OneToOne
-    @JoinColumn(name = "codigo")
+    @ManyToOne
+    @JoinColumn(name = "idCuenta")
     private CuentaEntity codigo;
     
-     /**
+     /**'
      * Columna que hace referencia al nombre de la persona
      */
     @Column(name = "nombre", nullable = false)
@@ -62,7 +62,7 @@ public class PersonaEntity implements Serializable {
      /**
      * Columna que hace referencia al número de documento de la persona
      */
-    @Column(name = "numero_documento", nullable = false, unique=true)
+    @Column(name = "numero_documento", nullable = false)
     private Long documento;
     
      /**
@@ -74,7 +74,7 @@ public class PersonaEntity implements Serializable {
      /**
      * Columna que hace referencia al correo de persona
      */
-    @Column(name = "correo", nullable = false, unique=true)
+    @Column(name = "correo", nullable = false)
     private String correo;
     
     

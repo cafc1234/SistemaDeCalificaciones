@@ -26,7 +26,7 @@ public class CuentaPersistence {
     /**
      * Instancia del entity manager
      */
-    @PersistenceContext(unitName = "calificacionesPU")
+    @PersistenceContext(unitName = "calificacionesUP")
     private EntityManager entityManager;    
 
 
