@@ -12,7 +12,7 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
         $scope.tipoDocumento = {};
         $scope.programa = {};
         $scope.cuenta.idRol = {
-            "id": 801,
+            "id": 54,
             "nombreRol": "Estudiante"
         };
 
@@ -52,8 +52,15 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
             $scope.obtenerPrograma();
             $scope.crearCuenta();
+
+
+        };
+        $scope.crearEstudianteCompleto = function () {
             if ($scope.estudiante.nombre && $scope.estudiante.apellido && $scope.estudiante.correo
-                    && $scope.estudiante.genero && $scope.estudiante.documento) {
+                    && $scope.estudiante.genero && $scope.estudiante.documento && $scope.estudiante.codigo && $scope.estudiante.programa
+                    && $scope.estudiante.tipoDocumento) {
+                console.log($scope.estudiante);
+
                 $http.post('api/personas/', JSON.stringify($scope.estudiante)).then(function (response) {
                     $scope.estudiante = {};
                     // se llama el metodo de cierre del modal
@@ -63,15 +70,15 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
                 }, function (error) {
                     console.log(error);
                 });
-            };
-            
+            }
+            ;
         };
 
 
-            $scope.obtenerPrograma = function () {
-                $http.get('api/programas/' + $scope.programa.id).then(function (response) {
-                    $scope.estudiante.programa = response.data;
-                    $scope.programa = {};
+        $scope.obtenerPrograma = function () {
+            $http.get('api/programas/' + $scope.programa.id).then(function (response) {
+                $scope.estudiante.programa = response.data;
+                $scope.programa = {};
             }, function (error) {
                 console.log(error);
             });
@@ -82,16 +89,17 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
                 console.log(error);
             });
 
-        }
+        };
 
 
 
         $scope.crearCuenta = function () {
             $scope.cuenta.password = $scope.cuenta.codigo;
-            if ($scope.cuenta.codigo && $scope.cuenta.password) {
+            if ($scope.cuenta.codigo && $scope.cuenta.password && $scope.cuenta.idRol) {
                 $http.post('api/cuentas/', JSON.stringify($scope.cuenta)).then(function (response) {
                     $scope.cuenta = {};
                     $scope.estudiante.codigo = response.data;
+                    $scope.crearEstudianteCompleto();
 
                 }, function (error) {
                     console.log(error);
