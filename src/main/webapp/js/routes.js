@@ -21,7 +21,7 @@ $stateProvider.state("tipoCurso",{
 url:'/tipoCurso',
 views:{
    mainView:{
-     templateUrl:'./js/tipoCurso/listar/listarTiposCurso.html',
+     templateUrl:'./js/tipoCurso/listar/listarTipoCurso.html',
      controller:'listarTipoCursoCtrl'
    }    
 }

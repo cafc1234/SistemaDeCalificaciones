@@ -63,8 +63,7 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
                 }, function (error) {
                     console.log(error);
                 });
-            }
-            ;
+            };
             
         };
 
