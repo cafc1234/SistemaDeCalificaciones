@@ -21,8 +21,8 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
             url: '/tipoCursos',
             views: {
                 mainView: {
-                    templateUrl: './js/tipoCurso/listar/listarTipoCurso.html',
-                    controller: 'listarTipoCursoCtrl'
+                    templateUrl: './js/tipoCurso/listar/listarTiposCurso.html',
+                    controller: 'listarTiposCursoCtrl'
                 }
             }
         });
