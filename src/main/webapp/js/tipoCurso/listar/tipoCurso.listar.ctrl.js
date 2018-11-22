@@ -1,7 +1,7 @@
 var tipoCursoModule = angular.module("tipoCursoModule");
 //El controlador quedará asociado al modulo
 
-tipoCursoModule.controller('listarTipoCursoCtrl', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+tipoCursoModule.controller('listarTiposCursoCtrl', ['$scope', '$http', '$state', function ($scope, $http, $state) {
 
     //Almacenar arreglo de tipos que retorna el servicio GET
     $scope.tipoCurso = {};
