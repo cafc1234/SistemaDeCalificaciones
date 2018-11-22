@@ -55,7 +55,6 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
  */
         $scope.eliminarEstudiante = function () {
             $http.delete('api/personas/' + $scope.idEliminar).then(function (response) {
-                $scope.estudiante = {};
                 // se llama el metodo de cierre del modal
                 $scope.cerrarModal();
 
