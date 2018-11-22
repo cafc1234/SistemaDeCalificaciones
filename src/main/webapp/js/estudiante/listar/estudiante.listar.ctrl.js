@@ -51,16 +51,15 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
         $scope.crearEstudiante = function () {
 
             $scope.obtenerPrograma();
-            $scope.crearCuenta();
 
 
         };
         $scope.crearEstudianteCompleto = function () {
+            alert("entró crear estudiante");
             if ($scope.estudiante.nombre && $scope.estudiante.apellido && $scope.estudiante.correo
                     && $scope.estudiante.genero && $scope.estudiante.documento && $scope.estudiante.codigo && $scope.estudiante.programa
                     && $scope.estudiante.tipoDocumento) {
                 console.log($scope.estudiante);
-
                 $http.post('api/personas/', JSON.stringify($scope.estudiante)).then(function (response) {
                     $scope.estudiante = {};
                     // se llama el metodo de cierre del modal
@@ -75,16 +74,23 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
         };
 
 
+        $scope.obtenerTipo = function () {
+            $http.get('api/tiposDocumento/' + $scope.tipoDocumento.id).then(function (response) {
+                $scope.estudiante.tipoDocumento = response.data;
+                $scope.tipoDocumento = {};
+                $scope.crearCuenta();
+            }, function (error) {
+                console.log(error);
+            });
+
+
+        };
+
         $scope.obtenerPrograma = function () {
             $http.get('api/programas/' + $scope.programa.id).then(function (response) {
                 $scope.estudiante.programa = response.data;
                 $scope.programa = {};
-            }, function (error) {
-                console.log(error);
-            });
-            $http.get('api/tiposDocumento/' + $scope.tipoDocumento.id).then(function (response) {
-                $scope.estudiante.tipoDocumento = response.data;
-                $scope.tipoDocumento = {};
+                $scope.obtenerTipo();
             }, function (error) {
                 console.log(error);
             });
