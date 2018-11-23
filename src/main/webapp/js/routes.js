@@ -57,5 +57,16 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
                 }
             }
         });
+        
+        $stateProvider.state("grupo", {
+            url: '/grupos',
+            views: {
+                mainView: {
+                    templateUrl: './js/grupo/listar/listarGrupos.html',
+                    controller: 'listarGrupoCtrl'
+                }
+            }
+        });
+
 
     }]);

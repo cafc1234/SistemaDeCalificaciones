@@ -1,0 +1,1 @@
+var grupoModule = angular.module("grupoModule",[]);
