@@ -22,6 +22,12 @@ function validarLogin(data) {
         if (data[posicion].idRol.nombreRol == "Estudiante") {
             window.location.href = "/SistemaDeCalificaciones/estudiante.html";
         }
+        if (data[posicion].idRol.nombreRol == "Coordinador") {
+            window.location.href = "/SistemaDeCalificaciones/coordinador.html";
+        }
+        if (data[posicion].idRol.nombreRol == "Profesor") {
+            window.location.href = "/SistemaDeCalificaciones/profesor.html";
+        }
 
 
     } else {

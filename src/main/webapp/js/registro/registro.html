@@ -1,0 +1,63 @@
+<h3>Registro coordinador</h3>
+<form>
+
+    <div class="form-group">
+        <div class="form-group">
+            <label for="codigo">Código</label>
+            <input type="text" ng-model="cuenta.codigo" class="form-control" id="codigo"  placeholder="Código">
+        </div>
+
+        <label for="nombre">Nombre</label>
+        <input type="text"  ng-model="coordinador.nombre" class="form-control" id="nombre"  placeholder="Nombre">
+    </div>
+    <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" ng-model="coordinador.apellido" class="form-control" ng-value="prueba" id="apellido" placeholder="Apellido">
+    </div>
+    <div class="form-group">
+        <label for="correo">correo</label>
+        <input type="email" ng-model="coordinador.correo" class="form-control" id="correo"  placeholder="Correo">
+    </div>
+    <div class="form-group">
+        <label for="selectTipo">Tipo de documento:</label>
+        <select class="form-control"  ng-model="tipoDocumento.id" ng-options="tipo.id as tipo.nombreTipo for tipo in tiposDocumentoCoordinadores" id="selectTipo">
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="documento">Número de documento</label>
+        <input type="text" ng-model="coordinador.documento" class="form-control" id="documento" placeholder="Número de documento">
+    </div>
+
+
+    <div class="form-group">
+        <label for="selectGenero">Genero:</label>
+        <select class="form-control" ng-model="coordinador.genero" id="selectGenero">
+            <option>Hombre</option>
+            <option>Mujer</option>
+            <option>No indica</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="selectPrograma">Programa:</label>
+        <select class="form-control" ng-model="programa.id" ng-options="programa.id as programa.nombrePrograma for programa in programasCoordinadores" id="selectPrograma" >
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="clave">Clave:</label>
+        <input type="password" class="form-control" ng-model="cuenta.password"  id="password">
+
+    </div>
+    <div class="form-group">
+        <label for="clave">Confirmar clave:</label>
+        <input type="password" class="form-control" ng-model="cuenta.passwordConfirmacion"  id="passwordConfirmacion">
+
+    </div>
+    <div id="errorClave"></div>
+
+    <div class="col-md-12">
+        <a class="btn btn-light" href="/index.html">Cancelar</a>
+        <button class="btn btn-success" ng-click="crearCoordinador()">Registrarse</button>
+    </div>
+</form>
+
