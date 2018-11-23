@@ -17,6 +17,9 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
             }
         });
 
+
+
+
         $stateProvider.state("tipoCurso", {
             url: '/tipoCursos',
             views: {

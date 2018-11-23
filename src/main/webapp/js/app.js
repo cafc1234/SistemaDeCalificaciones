@@ -5,7 +5,8 @@ var app = angular.module("SistemaCalificaciones",[
     'tipoDocumentoModule',
     'tipoCursoModule',
     'estudianteModule',
-    'programaModule'
+    'programaModule',
+    'principalModule'
 ]);
 
 

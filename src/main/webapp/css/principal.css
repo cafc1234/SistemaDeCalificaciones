@@ -17,6 +17,11 @@
     padding-right: 3%;
 }
 
+.usuario{
+    float: right;
+    padding-right: 5%;
+    padding-top:3%;
+}
 
 body{
     background-color: #F2F2F2;
