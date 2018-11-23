@@ -18,7 +18,15 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
         });
 
 
-
+        $stateProvider.state("cambiar_informacion", {
+            url: '/cambiar_informacion',
+            views: {
+                mainView: {
+                    templateUrl: './js/cambiarInformacion/controlCambiar/cambiarInformacion.html',
+                    controller: 'cambiarInformacionCtrl'
+                }
+            }
+        });
 
         $stateProvider.state("tipoCurso", {
             url: '/tipoCursos',

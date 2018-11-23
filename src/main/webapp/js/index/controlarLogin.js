@@ -9,9 +9,9 @@ function validarLogin(data) {
 
 
     for (var i = 0; i < data.length; i++) {
-        if (data[i].password === login) {
+        if (data[i].codigo == login) {
             esUsuarioValido = true;
-            if (data[i].password === clave) {
+            if (data[i].password == clave) {
                 esClaveValida = true;
                 posicion = i;
             }
@@ -19,9 +19,10 @@ function validarLogin(data) {
     }
     if (esClaveValida && esUsuarioValido) {
         document.cookie = "codigoUsuario=" + data[posicion].codigo;
-        document.cookie = "rol=" + data[posicion].idRol.nombreRol;
+        if (data[posicion].idRol.nombreRol == "Estudiante") {
+            window.location.href = "/SistemaDeCalificaciones/estudiante.html";
+        }
 
-        window.location.href = "/SistemaDeCalificaciones/coordinador.html";
 
     } else {
         $("#errorClave").html("<div class='alert alert-danger'>La clave no es correcta</div>");

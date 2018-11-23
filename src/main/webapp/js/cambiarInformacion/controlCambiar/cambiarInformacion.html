@@ -1,0 +1,56 @@
+<h4>Cambiar información</h4>
+<div class="alert alert-info">
+  <strong>!A tener en cuenta!</strong> <br>El programa, tipo de documento y código solo puede ser cambiado por el coordinador/administrador.
+</div>
+
+<div class="form-group">
+<label for="nombre">Nombre</label>
+<input type="text"  ng-model="estudiante.nombre" class="form-control" id="nombre"  placeholder="Nombre">
+</div>
+<div class="form-group">
+    <label for="apellido">Apellido</label>
+    <input type="text" ng-model="estudiante.apellido" class="form-control" id="apellido" placeholder="Apellido">
+</div>
+<div class="form-group">
+    <label for="correo">correo</label>
+    <input type="email" ng-model="estudiante.correo" class="form-control" id="correo"  placeholder="Correo">
+</div>
+<div class="form-group">
+    <label for="selectGenero">Genero:</label>
+    <select class="form-control" ng-model="estudiante.genero" id="selectGenero">
+        <option>Hombre</option>
+        <option>Mujer</option>
+        <option>No indica</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="documento">Número de documento</label>
+    <input type="text" ng-model="estudiante.documento" class="form-control" id="documento" placeholder="Número de documento">
+</div>
+<button class="btn btn-block btn-success" ng-click="actualizarInformacion()">Guardar cambios</button>
+<br>
+<div id="errorActualizar"></div>
+<br>
+
+<h4>Cambiar clave</h4>
+<div class="alert alert-info">
+  <strong>!A tener en cuenta!</strong> <br>Si es su primer ingreso, la clave por defecto es su código.
+</div>
+
+<div class="form-group">
+    <label for="passwordAntiguo">Clave antigua</label>
+    <input type="password" ng-model="clave.passwordAntiguo" class="form-control" id="passwordAntiguo" placeholder="Clave antigua">
+</div>
+<div class="form-group">
+    <label for="passwordNuevo">Clave nueva</label>
+    <input type="password" ng-model="clave.passwordNuevo" class="form-control" id="passwordNuevo" placeholder="Clave nueva">
+</div>
+<div class="form-group">
+    <label for="passwordConfirmacion">confirmar clave</label>
+    <input type="password" ng-model="clave.passwordConfirmacion" class="form-control" id="passwordConfirmacion" placeholder="Clave confirmación">
+</div>
+
+<button class="btn btn-block btn-success" ng-click="cambiarClave()">Cambiar clave</button>
+<br>
+<div id="errorClave"></div>
+<br>
