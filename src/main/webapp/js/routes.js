@@ -17,15 +17,6 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
             }
         });
         
-                $stateProvider.state("tipoDocumento", {
-            url: '/tipoDocumento',
-            views: {
-                mainView: {
-                    templateUrl: './js/tipoDocumento/listar/listarTiposDocumento.html',
-                    controller: 'listarTipoDocumentoCtrl'
-                }
-            }
-        });
 
         $stateProvider.state("programa", {
             url: '/programa',
