@@ -26,6 +26,7 @@
         </tbody>
     </table>
 </div>
+<div id="errorInscritas"></div>
 <div id="modalActualizar" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -39,7 +40,7 @@
                 <form>
                     <div class="form-group">
                         <label for="selectCurso">Seleccione el curso</label>
-                        <select class="form-control" ng-model="inscrito.curso.id" ng-options="curso.id as 'Curso:'+curso.nombreCurso+'/Grupo:'+curso.grupo.nombreGrupo for curso in cursos" id="selectPrograma" >
+                        <select class="form-control" ng-model="inscrito.grupo.id" ng-options="curso.id as 'Curso:'+curso.nombreCurso+'/Grupo:'+curso.grupo.nombreGrupo for curso in cursos" id="selectPrograma" >
 
                         </select>
                     </div>
@@ -51,6 +52,29 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="botonCerrar">Cerrar</button>
                 <button class="btn btn-primary" ng-if="valorId==0" id="crearBoton" ng-click="inscribirGrupo()">Crear</button>
 
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="modalConfirmar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Eliminar inscripción</h4>
+            </div>
+            <div class="modal-body">
+                ¿En verdad desea eliminar esta inscripción?
+                <br>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-danger" ng-click="eliminarInscripcion()">Eliminar</button> 
             </div>
         </div>
 

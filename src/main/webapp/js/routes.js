@@ -17,6 +17,16 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
             }
         });
         
+                $stateProvider.state("inscripcion", {
+            url: '/inscripcion',
+            views: {
+                mainView: {
+                    templateUrl: './js/inscripcion/listar/listarInscripcion.html',
+                    controller: 'inscripcionCtrl'
+                }
+            }
+        });
+        
 
         $stateProvider.state("programa", {
             url: '/programa',

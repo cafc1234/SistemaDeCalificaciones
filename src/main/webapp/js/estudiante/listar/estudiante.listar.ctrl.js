@@ -4,16 +4,18 @@ var estudianteModule = angular.module("estudianteModule");
 estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', function ($scope, $http, $state) {
 
         // metodo necesario para que se recargue correctamente la pagina, el $state no esta sirviendo por que recarga y no espera que se termine la ejecucion de la accion
-        $scope.estudiante={};
+        $scope.estudiante = {};
+        $scope.tipoDocumento = {};
+
         reload = function () {
 
             $scope.programasEstudiantes = new Array();
             $scope.tiposDocumentoEstudiantes = new Array();
             $scope.estudiantes = new Array();
             $scope.estudiante = {};
-            $scope.tipoDocumento={};
-            $scope.programa={};
-            $scope.cuenta={};
+            $scope.tipoDocumento = {};
+            $scope.programa = {};
+            $scope.cuenta = {};
             $http.get('api/roles').then(function (response) {
                 $scope.obtenerRol(response.data);
             }, function (error) {
@@ -79,9 +81,9 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
             if (id != 0) {
                 $http.get('api/personas/' + id).then(function (response) {
                     $scope.estudiante = response.data;
-                    $scope.programa=$scope.estudiante.programa;
-                    $scope.tipoDocumento=$scope.estudiante.tipoDocumento;
-                    $scope.cuenta=$scope.estudiante.codigo;
+                    $scope.programa = $scope.estudiante.programa;
+                    $scope.tipoDocumento = $scope.estudiante.tipoDocumento;
+                    $scope.cuenta = $scope.estudiante.codigo;
                 }, function (error) {
                     console.log(error);
                 });
@@ -107,7 +109,7 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
                     && $scope.estudiante.genero && $scope.estudiante.documento && $scope.estudiante.codigo && $scope.estudiante.programa
                     && $scope.estudiante.tipoDocumento) {
                 $http.put('api/cuentas/' + $scope.cuenta.id, JSON.stringify($scope.cuenta)).then(function (response) {
-                    
+
                     $http.put('api/personas/' + $scope.estudiante.id, JSON.stringify($scope.estudiante)).then(function (response) {
                         $scope.estudiante = {};
                         // se llama el metodo de cierre del modal
@@ -127,14 +129,14 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
         $scope.actualizarEstudiante = function () {
             $http.get('api/programas/' + $scope.programa.id).then(function (response) {
-                $scope.programa={};
+                $scope.programa = {};
                 $scope.estudiante.programa = response.data;
             }, function (error) {
                 console.log(error);
             });
 
-            $http.get('api/tiposDocumento/' + $scope.tipoDocumento.id).then(function (response) {
-                $scope.tipoDocumento={};
+            $http.get('api/tiposDocumento/' + $scope.estudiante.tipoDocumento.id).then(function (response) {
+                $scope.tipoDocumento = {};
                 $scope.estudiante.tipoDocumento = response.data;
             }, function (error) {
                 console.log(error);
@@ -165,8 +167,8 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
 
         $scope.obtenerTipo = function () {
-            $http.get('api/tiposDocumento/' + $scope.tipoDocumento.id).then(function (response) {
-                $scope.tipoDocumento={};
+            $http.get('api/tiposDocumento/' + $scope.estudiante.tipoDocumento.id).then(function (response) {
+                $scope.tipoDocumento = {};
                 $scope.estudiante.tipoDocumento = response.data;
                 $scope.crearCuenta();
             }, function (error) {
@@ -178,7 +180,7 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
         $scope.obtenerPrograma = function () {
             $http.get('api/programas/' + $scope.programa.id).then(function (response) {
-                $scope.programa={};
+                $scope.programa = {};
                 $scope.estudiante.programa = response.data;
                 $scope.obtenerTipo();
             }, function (error) {
