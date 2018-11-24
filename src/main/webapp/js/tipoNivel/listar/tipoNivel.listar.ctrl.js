@@ -21,14 +21,21 @@ tipoNivelModule.controller('listarTiposNivelCtrl', ['$scope', '$http', '$state',
         reload();
 
         $scope.actualizarCrear = function (id, nombreNivel, tipoModal) {
-            $scope.valorNombre = nombreNivel;
             $scope.valorId = id;
             $scope.tipoModal = tipoModal;
+            
+            if(id!=0){
+            $http.get('api/tiposNivel/'+id).then(function (response) {
+               
+                $scope.tipoNivel = response.data;
+            }, function (error) {
+                console.log(error);
+            });                
+            }
         };
 
         $scope.crearTipoNivel = function () {
             if ($scope.tipoNivel.nombreNivel) {
-                $scope.tipoNivel.id = $scope.valorId;
                 $http.post('api/tiposNivel/', JSON.stringify($scope.tipoNivel)).then(function (response) {
                     $scope.tipoNivel = {};
                     // se llama el metodo de cierre del modal
@@ -49,11 +56,9 @@ tipoNivelModule.controller('listarTiposNivelCtrl', ['$scope', '$http', '$state',
 
         };
 
-        $scope.guardarTipoCurso = function () {
-            if ($scope.tipoNivel.nombreNivel && $scope.valorId) {
-                $scope.tipoNivel.id = $scope.valorId;
-
-                $http.put('api/tiposNivel/' + $scope.valorId, JSON.stringify($scope.tipoNivel)).then(function (response) {
+        $scope.guardarTipoNivel = function () {
+            if ($scope.tipoNivel.nombreNivel) {
+                $http.put('api/tiposNivel/' + $scope.tipoNivel.id, JSON.stringify($scope.tipoNivel)).then(function (response) {
                     $scope.tipoNivel = {};
                     // se llama el metodo de cierre del modal
                     $scope.cerrarModal();
