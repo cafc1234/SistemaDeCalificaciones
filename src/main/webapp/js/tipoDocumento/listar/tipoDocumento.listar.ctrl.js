@@ -44,7 +44,7 @@ tipoDocumentoModule.controller('listarTipoDocumentoCtrl', ['$scope', '$http', '$
     // Se corrige el metodo para cerrar el modal
     $scope.cerrarModal = function () {
       $("#modalActualizar").modal("hide");
-
+      $("#modalConfirmar").modal("hide");
     };
 
     $scope.guardarTipoDocumento = function () {
@@ -66,11 +66,19 @@ tipoDocumentoModule.controller('listarTipoDocumentoCtrl', ['$scope', '$http', '$
 
 
     $scope.eliminar = function (id) {
-      $http.delete('api/tiposDocumento/' + id).then(function (response) {
-        //Recargar la pag
-        $state.reload();
-      }, function (error) {
-        console.log(error);
-      });
-    };
+            $scope.idEliminar = id;
+            $("#modalConfirmar").modal("show");
+
+        };
+
+        $scope.eliminarTipoDocumento = function () {
+            $http.delete('api/tiposDocumento/' + $scope.idEliminar).then(function (response) {
+                $scope.cerrarModal();
+
+                //Recargar la pag
+                reload();
+            }, function (error) {
+                console.log(error);
+            });
+        };
     }]);
