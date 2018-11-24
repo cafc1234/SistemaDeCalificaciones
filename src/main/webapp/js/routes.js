@@ -47,13 +47,24 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
                 }
             }
         });
-
-        $stateProvider.state("programa", {
-            url: '/programa',
+        
+                $stateProvider.state("estudiante", {
+            url: '/estudiante',
             views: {
                 mainView: {
-                    templateUrl: './js/programa/listar/listarProgramas.html',
-                    controller: 'listarProgramaCtrl'
+                    templateUrl: './js/estudiante/listar/listarEstudiantes.html',
+                    controller: 'estudianteCtrl'
+                }
+            }
+        });
+
+
+        $stateProvider.state("profesor", {
+            url: '/profesor',
+            views: {
+                mainView: {
+                    templateUrl: './js/profesor/listar/listarProfesores.html',
+                    controller: 'profesorCtrl'
                 }
             }
         });
