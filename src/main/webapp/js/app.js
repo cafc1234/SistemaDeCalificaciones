@@ -9,7 +9,8 @@ var app = angular.module("SistemaCalificaciones",[
     'programaModule',
     'grupoModule',
     'cambiarInformacionModule',
-    'tipoNivelModule'
+    'tipoNivelModule',
+    'cambiarInformacionProfesorModule'
     
 ]);
 
