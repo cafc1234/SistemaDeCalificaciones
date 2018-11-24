@@ -1,1 +1,142 @@
-Pruebita
+<div class="col-md-9">
+    <h3>Profesores</h3>
+</div>
+<div class="col-md-3">
+    <br>
+    <button class="btn btn-light btn-block" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizarCrear(0,'Agregar')">Agregar</button>
+</div>
+<br>
+<br>
+<div id="tableEstudiante">
+    <table class="table table-striped">
+        <thead>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Tipo de documento</th>
+        <th>Número</th>
+        <th>Genero</th>
+        <th>Correo</th>
+        <th>Programa</th>
+        <th>Área de profundización</th>
+        <th>Opciones</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="profesor in profesores" ng-if="profesor.codigo.codigo.idRol.nombreRol=='Profesor'">
+                <td>{{profesor.codigo.codigo.codigo}}</td>
+                <td>{{profesor.codigo.nombre}} {{profesor.codigo.apellido}}</td>
+                <td>{{profesor.codigo.tipoDocumento.nombreTipo}}</td>
+                <td>{{profesor.codigo.documento}}</td>
+                <td>{{profesor.codigo.genero}}</td>
+                <td>{{profesor.codigo.correo}}</td>
+                <td>{{profesor.codigo.programa.nombrePrograma}}</td>
+                <td>{{profesor.areaProfundizacion}}</td>
+                <td><button class="btn btn-danger" ng-click="eliminar(profesor.id)" >Eliminar</button>
+                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizarCrear(profesor.id,'Actualizar')">Actualizar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<div id="modalActualizar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{tipoModal}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="hidden" ng-model="profesor.id" id="id_estudiante" ng-value="idProfesor">
+                            <label for="nombre">Nombre</label>
+                            <input type="text"  ng-model="profesor.codigo.nombre" class="form-control" id="nombre"  placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" ng-model="profesor.codigo.apellido" class="form-control" id="apellido" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">correo</label>
+                            <input type="email" ng-model="profesor.codigo.correo" class="form-control" id="correo"  placeholder="Correo">
+                        </div>
+                        <div class="form-group">
+                            <label for="selectTipo">Tipo de documento:</label>
+                            <select class="form-control"  ng-model="profesor.codigo.tipoDocumento.id" ng-options="tipo.id as tipo.nombreTipo for tipo in tiposDocumentoProfesores" id="selectTipo">
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="codigo">Código</label>
+                            <input type="text" ng-model="profesor.codigo.codigo.codigo" class="form-control" id="codigo"  placeholder="Código">
+                        </div>
+                        <div class="form-group">
+                            <label for="selectGenero">Genero:</label>
+                            <select class="form-control" ng-model="profesor.codigo.genero" id="selectGenero">
+                                <option>Hombre</option>
+                                <option>Mujer</option>
+                                <option>No indica</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectPrograma">Programa:</label>
+                            <select class="form-control" ng-model="profesor.codigo.programa.id" ng-options="programa.id as programa.nombrePrograma for programa in programasProfesores" id="selectPrograma" >
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="documento">Número de documento</label>
+                            <input type="text" ng-model="profesor.codigo.documento" class="form-control" id="documento" placeholder="Número de documento">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="area">Área de profundización</label>
+                            <input type="text" ng-model="profesor.areaProfundizacion" class="form-control" id="area" placeholder="Área de profundización">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <small>La clave por defecto que será asignada será el código del docente</small>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="botonCerrar">Cerrar</button>
+                <button class="btn btn-primary" ng-if="idProfesor==0" id="crearBoton" ng-click="crearProfesor()">Crear</button>
+                <button class="btn btn-primary" ng-if="!idProfesor==0" id="crearBoton" ng-click="actualizarProfesor()">Actualizar</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="modalConfirmar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Eliminar profesor</h4>
+            </div>
+            <div class="modal-body">
+                ¿En verdad desea eliminar este profesor?
+                <br>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-danger" ng-click="eliminarProfesor()">Eliminar</button> 
+            </div>
+        </div>
+
+    </div>
+</div>

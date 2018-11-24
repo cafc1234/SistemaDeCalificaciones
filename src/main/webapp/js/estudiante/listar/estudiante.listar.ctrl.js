@@ -4,20 +4,21 @@ var estudianteModule = angular.module("estudianteModule");
 estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', function ($scope, $http, $state) {
 
         // metodo necesario para que se recargue correctamente la pagina, el $state no esta sirviendo por que recarga y no espera que se termine la ejecucion de la accion
+        $scope.estudiante={};
         reload = function () {
 
             $scope.programasEstudiantes = new Array();
             $scope.tiposDocumentoEstudiantes = new Array();
             $scope.estudiantes = new Array();
             $scope.estudiante = {};
-            $scope.cuenta = {};
-            $scope.tipoDocumento = {};
-            $scope.programa = {};
-            $scope.cuenta.idRol = {
-                "id": 54,
-                "nombreRol": "Estudiante"
-            };
-
+            $scope.tipoDocumento={};
+            $scope.programa={};
+            $scope.cuenta={};
+            $http.get('api/roles').then(function (response) {
+                $scope.obtenerRol(response.data);
+            }, function (error) {
+                console.log(error);
+            });
 
 
             $http.get('api/programas').then(function (response) {
@@ -40,9 +41,16 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
         reload();
 
+        $scope.obtenerRol = function (data) {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].nombreRol == "Estudiante") {
+                    $scope.idRol = data[i];
+                }
+            }
+        };
 
         /*Se encarga de mostrar el modal de confirmación y de asignar el id a eliminar a la variable
-        idEliminar
+         idEliminar
          **/
         $scope.eliminar = function (id) {
             $scope.idEliminar = id;
@@ -50,9 +58,9 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
         };
 
-/*
- *  Se encarga de eliminar el estudiante una vez se confirmó por parte del usuario que desea realizarse
- */
+        /*
+         *  Se encarga de eliminar el estudiante una vez se confirmó por parte del usuario que desea realizarse
+         */
         $scope.eliminarEstudiante = function () {
             $http.delete('api/personas/' + $scope.idEliminar).then(function (response) {
                 // se llama el metodo de cierre del modal
@@ -71,9 +79,9 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
             if (id != 0) {
                 $http.get('api/personas/' + id).then(function (response) {
                     $scope.estudiante = response.data;
-                    $scope.cuenta = $scope.estudiante.codigo;
-                    $scope.tipoDocumento = $scope.estudiante.tipoDocumento;
-                    $scope.programa = $scope.estudiante.programa;
+                    $scope.programa=$scope.estudiante.programa;
+                    $scope.tipoDocumento=$scope.estudiante.tipoDocumento;
+                    $scope.cuenta=$scope.estudiante.codigo;
                 }, function (error) {
                     console.log(error);
                 });
@@ -94,20 +102,46 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
         };
 
-        $scope.actualizarEstudiante = function () {
+        $scope.actualizar = function () {
             if ($scope.estudiante.id && $scope.estudiante.nombre && $scope.estudiante.apellido && $scope.estudiante.correo
                     && $scope.estudiante.genero && $scope.estudiante.documento && $scope.estudiante.codigo && $scope.estudiante.programa
                     && $scope.estudiante.tipoDocumento) {
-                $http.put('api/personas/' + $scope.estudiante.id, JSON.stringify($scope.estudiante)).then(function (response) {
-                    $scope.estudiante = {};
-                    // se llama el metodo de cierre del modal
-                    $scope.cerrarModal();
-                    //se recarga la pagina, con el metodo creado que vuelve a llamar el get de los datos
-                    reload();
+                $http.put('api/cuentas/' + $scope.cuenta.id, JSON.stringify($scope.cuenta)).then(function (response) {
+                    
+                    $http.put('api/personas/' + $scope.estudiante.id, JSON.stringify($scope.estudiante)).then(function (response) {
+                        $scope.estudiante = {};
+                        // se llama el metodo de cierre del modal
+                        $scope.cerrarModal();
+                        //se recarga la pagina, con el metodo creado que vuelve a llamar el get de los datos
+                        reload();
+                    }, function (error) {
+                        console.log(error);
+                    });
+
                 }, function (error) {
                     console.log(error);
                 });
+
             }
+        }
+
+        $scope.actualizarEstudiante = function () {
+            $http.get('api/programas/' + $scope.programa.id).then(function (response) {
+                $scope.programa={};
+                $scope.estudiante.programa = response.data;
+            }, function (error) {
+                console.log(error);
+            });
+
+            $http.get('api/tiposDocumento/' + $scope.tipoDocumento.id).then(function (response) {
+                $scope.tipoDocumento={};
+                $scope.estudiante.tipoDocumento = response.data;
+            }, function (error) {
+                console.log(error);
+            });
+
+            $scope.actualizar();
+
         };
 
 
@@ -132,8 +166,8 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
         $scope.obtenerTipo = function () {
             $http.get('api/tiposDocumento/' + $scope.tipoDocumento.id).then(function (response) {
+                $scope.tipoDocumento={};
                 $scope.estudiante.tipoDocumento = response.data;
-                $scope.tipoDocumento = {};
                 $scope.crearCuenta();
             }, function (error) {
                 console.log(error);
@@ -144,8 +178,8 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
         $scope.obtenerPrograma = function () {
             $http.get('api/programas/' + $scope.programa.id).then(function (response) {
+                $scope.programa={};
                 $scope.estudiante.programa = response.data;
-                $scope.programa = {};
                 $scope.obtenerTipo();
             }, function (error) {
                 console.log(error);
@@ -157,9 +191,9 @@ estudianteModule.controller('estudianteCtrl', ['$scope', '$http', '$state', func
 
         $scope.crearCuenta = function () {
             $scope.cuenta.password = $scope.cuenta.codigo;
+            $scope.cuenta.idRol = $scope.idRol;
             if ($scope.cuenta.codigo && $scope.cuenta.password && $scope.cuenta.idRol) {
                 $http.post('api/cuentas/', JSON.stringify($scope.cuenta)).then(function (response) {
-                    $scope.cuenta = {};
                     $scope.estudiante.codigo = response.data;
                     $scope.crearEstudianteCompleto();
 
