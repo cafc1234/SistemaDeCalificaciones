@@ -37,15 +37,7 @@ public class HorariosEntity implements Serializable{
     @JoinColumn(name = "idGrupo")
     private CursoEntity grupo;
     
-     /**
-     * Columna que hace referencia al codigo del profesor y se relaciona con la
-     * tabla profesor
-     */
-   
-    @ManyToOne
-    @JoinColumn(name = "codigo")
-    private ProfesorEntity profesor;
-    
+
      /**
      * Columna que hace referencia al día de la semana
      */
@@ -80,13 +72,6 @@ public class HorariosEntity implements Serializable{
         this.grupo = grupo;
     }
 
-    public ProfesorEntity getProfesor() {
-        return profesor;
-    }
-
-    public void setProfesor(ProfesorEntity profesor) {
-        this.profesor = profesor;
-    }
 
     public String getDiaSemana() {
         return diaSemana;

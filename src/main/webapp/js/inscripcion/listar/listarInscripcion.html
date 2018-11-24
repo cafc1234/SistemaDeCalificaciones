@@ -1,0 +1,58 @@
+<div class="col-md-9">
+    <h3>Materias inscritas</h3>
+</div>
+<div class="col-md-3">
+    <br>
+    <button class="btn btn-light btn-block" type="button" data-toggle="modal" data-target="#modalActualizar" ng-click="actualizarCrear(0,'Crear')">Agregar</button>
+</div>
+<br>
+<br>
+<div id="tablaInscripcion">
+    <table class="table table-striped">
+        <thead>
+        <th>Nombre curso</th>
+        <th>Nombre grupo</th>
+
+        </thead>
+        <tbody>
+            <tr ng-repeat="inscrito in inscritos">
+                <td>{{inscrito.grupo.nombreCurso}}</td>
+                <td>{{inscrito.grupo.grupo.nombreGrupo}}</td>
+                <td>
+                    <button class="btn btn-danger" ng-click="eliminar(inscrito.id)" >Eliminar</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="modalActualizar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{tipoModal}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="selectCurso">Seleccione el curso</label>
+                        <select class="form-control" ng-model="inscrito.curso.id" ng-options="curso.id as 'Curso:'+curso.nombreCurso+'/Grupo:'+curso.grupo.nombreGrupo for curso in cursos" id="selectPrograma" >
+
+                        </select>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="botonCerrar">Cerrar</button>
+                <button class="btn btn-primary" ng-if="valorId==0" id="crearBoton" ng-click="inscribirGrupo()">Crear</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>

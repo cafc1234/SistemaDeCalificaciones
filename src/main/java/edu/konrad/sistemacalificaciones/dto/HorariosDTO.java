@@ -28,11 +28,6 @@ public class HorariosDTO {
     private CursoDTO grupo;
 
     /**
-     * Atributo que hace referencia al profesor que le corresponde el horario
-     */
-    private ProfesorDTO profesor;
-
-    /**
      * Atributo que hace referencia al día de la semana
      */
     private String diaSemana;
@@ -64,9 +59,7 @@ public class HorariosDTO {
         if (horariosEntity.getGrupo() != null) {
             this.grupo = new CursoDTO(horariosEntity.getGrupo());
         }
-        if (horariosEntity.getProfesor() != null) {
-            this.profesor = new ProfesorDTO(horariosEntity.getProfesor());
-        }
+
         this.diaSemana = horariosEntity.getDiaSemana();
         this.horaInicio = horariosEntity.getHoraInicio();
         this.horaFin = horariosEntity.getHoraFin();
@@ -84,9 +77,6 @@ public class HorariosDTO {
         horariosEntity.setIdHorario(this.id);
         if (this.grupo != null) {
             horariosEntity.setGrupo(this.grupo.toEntity());
-        }
-        if (this.profesor != null) {
-            horariosEntity.setProfesor(this.profesor.toEntity());
         }
         horariosEntity.setDiaSemana(this.diaSemana);
         horariosEntity.setHoraInicio(this.horaInicio);
@@ -122,14 +112,6 @@ public class HorariosDTO {
 
     public void setGrupo(CursoDTO grupo) {
         this.grupo = grupo;
-    }
-
-    public ProfesorDTO getProfesor() {
-        return profesor;
-    }
-
-    public void setProfesor(ProfesorDTO profesor) {
-        this.profesor = profesor;
     }
 
     public String getDiaSemana() {
