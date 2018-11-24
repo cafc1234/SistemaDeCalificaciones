@@ -4,11 +4,11 @@ var app = angular.module("SistemaCalificaciones",[
     'ui.router',
     'tipoDocumentoModule',
     'tipoCursoModule',
+    'profesorModule',
     'estudianteModule',
     'programaModule',
     'grupoModule',
-    'cambiarInformacionModule',
-    'profesorModule'
+    'cambiarInformacionModule'
 ]);
 
 

@@ -48,15 +48,6 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
             }
         });
         
-                $stateProvider.state("estudiante", {
-            url: '/estudiante',
-            views: {
-                mainView: {
-                    templateUrl: './js/estudiante/listar/listarEstudiantes.html',
-                    controller: 'estudianteCtrl'
-                }
-            }
-        });
 
 
         $stateProvider.state("profesor", {
