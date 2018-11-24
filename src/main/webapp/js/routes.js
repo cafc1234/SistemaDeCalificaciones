@@ -70,5 +70,16 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
             }
         });
 
+        $stateProvider.state("tiposNivel", {
+            url: '/tiposNivel',
+            views: {
+                mainView: {
+                    templateUrl: './js/tipoNivel/listar/listarTiposNivel.html',
+                    controller: 'listarTiposNivelCtrl'
+                }
+            }
+        });
 
     }]);
+
+
